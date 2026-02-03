@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jharva Fashion | Contemporary Indian Womenswear</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f8f3ec;
+      --primary: #4a0e2e;
+      --primary-600: #3b0924;
+      --gold: #d4af37;
+      --text: #2a1a1f;
+      --muted: #6b5b5f;
+      --card: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1200px, 92%);
+      margin: 0 auto;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(212, 175, 55, 0.15);
+      color: var(--gold);
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(248, 243, 236, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(74, 14, 46, 0.1);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+    }
+
+    .brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-cta {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn {
+      padding: 12px 20px;
+      border-radius: 999px;
+      border: 1px solid var(--primary);
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      font-size: 12px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      background: transparent;
+      color: var(--primary);
+    }
+
+    .btn.primary {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px rgba(74, 14, 46, 0.15);
+    }
+
+    .hero {
+      padding: 90px 0 60px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 50px;
+      align-items: center;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(40px, 6vw, 72px);
+      color: var(--primary);
+      line-height: 1.05;
+      margin: 18px 0;
+    }
+
+    .hero-subtitle {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 26px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .hero-card {
+      background: var(--card);
+      padding: 28px;
+      border-radius: 20px;
+      box-shadow: 0 30px 60px rgba(74, 14, 46, 0.12);
+      display: grid;
+      gap: 20px;
+    }
+
+    .image-placeholder {
+      border-radius: 16px;
+      height: 280px;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.25), rgba(74, 14, 46, 0.85));
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .badge-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 16px;
+    }
+
+    .badge-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 16px;
+      border: 1px solid rgba(74, 14, 46, 0.1);
+      font-size: 14px;
+    }
+
+    section {
+      padding: 70px 0;
+    }
+
+    .section-title {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 44px);
+      color: var(--primary);
+    }
+
+    .section-title p {
+      color: var(--muted);
+      max-width: 640px;
+    }
+
+    .collection-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .product {
+      background: var(--card);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(74, 14, 46, 0.08);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product .image-placeholder {
+      height: 220px;
+      border-radius: 0;
+      font-size: 28px;
+    }
+
+    .product-body {
+      padding: 20px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .price {
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .tag {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 20px;
+      border: 1px solid rgba(74, 14, 46, 0.08);
+    }
+
+    .feature-card h4 {
+      margin: 12px 0 8px;
+      color: var(--primary);
+    }
+
+    .lookbook {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .lookbook-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .lookbook-grid .image-placeholder {
+      border-radius: 16px;
+      height: 220px;
+      font-size: 24px;
+    }
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .testimonial {
+      background: #fff;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 16px 30px rgba(74, 14, 46, 0.08);
+    }
+
+    .testimonial p {
+      color: var(--muted);
+    }
+
+    .order {
+      background: #fff;
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: 0 22px 40px rgba(74, 14, 46, 0.12);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    input, textarea, select {
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(74, 14, 46, 0.2);
+      font-family: inherit;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .contact-cards {
+      display: grid;
+      gap: 16px;
+    }
+
+    .contact-card {
+      padding: 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(74, 14, 46, 0.12);
+      background: rgba(212, 175, 55, 0.08);
+    }
+
+    footer {
+      background: var(--primary-600);
+      color: #fff;
+      padding: 50px 0 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+
+    .footer-grid h4 {
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 12px;
+      color: var(--gold);
+    }
+
+    .footer-grid a {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 14px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      margin-top: 24px;
+      padding-top: 16px;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: var(--primary);
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-toggle {
+        display: inline-flex;
+      }
+
+      .nav.open .nav-links {
+        display: flex;
+        position: absolute;
+        top: 64px;
+        right: 4%;
+        background: #fff;
+        padding: 18px;
+        border-radius: 16px;
+        flex-direction: column;
+        box-shadow: 0 20px 40px rgba(74, 14, 46, 0.15);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding-top: 60px;
+      }
+
+    .image-placeholder {
+      height: 220px;
+    }
+
+      .order {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav" id="top">
+      <div class="brand">Jharva Fashion</div>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#collection">Collection</a>
+        <a href="#story">Our Story</a>
+        <a href="#lookbook">Lookbook</a>
+        <a href="#order">Order</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-cta">
+        <button class="btn" type="button">WhatsApp</button>
+        <a class="btn primary" href="#order">Shop Now</a>
+        <button class="mobile-toggle" aria-label="Open menu" type="button">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <span class="pill">Luxury | Handmade | Mumbai</span>
+          <h1 class="hero-title">Modern silhouettes rooted in Indian craft.</h1>
+          <p class="hero-subtitle">
+            Jharva Fashion curates handcrafted kurtis, lehengas, and contemporary dresses with premium fabrics,
+            flawless fits, and ready-to-gift packaging. Order online and get doorstep delivery across India.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#collection">Explore Collection</a>
+            <a class="btn" href="#order">Place an Order</a>
+          </div>
+          <div class="badge-list" style="margin-top: 28px;">
+            <div class="badge-card">Free style consultation</div>
+            <div class="badge-card">Custom sizing available</div>
+            <div class="badge-card">Ships in 3-5 days</div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="image-placeholder" aria-hidden="true">Jharva</div>
+          <div>
+            <div class="tag">New arrival</div>
+            <h3 style="font-family: 'Playfair Display', serif; font-size: 26px;">Rose gold festive set</h3>
+            <p style="color: var(--muted); margin-top: 8px;">Hand-embroidered detailing, lightweight silk blend.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="collection">
+      <div class="container">
+        <div class="section-title">
+          <h2>Trending Collection</h2>
+          <p>Shop our best-selling edits designed for weddings, festivities, and everyday elegance.</p>
+        </div>
+        <div class="collection-grid">
+          <article class="product">
+            <div class="image-placeholder" aria-hidden="true">Kurti</div>
+            <div class="product-body">
+              <div class="tag">Best seller</div>
+              <h3>Ivory Silk Kurti</h3>
+              <p class="price">₹2,499</p>
+              <p>Soft sheen, relaxed fit, and delicate threadwork.</p>
+              <a class="btn" href="#order">Add to Order</a>
+            </div>
+          </article>
+          <article class="product">
+            <div class="image-placeholder" aria-hidden="true">Lehenga</div>
+            <div class="product-body">
+              <div class="tag">Festive edit</div>
+              <h3>Emerald Lehenga</h3>
+              <p class="price">₹8,999</p>
+              <p>Handcrafted mirror work with a statement dupatta.</p>
+              <a class="btn" href="#order">Add to Order</a>
+            </div>
+          </article>
+          <article class="product">
+            <div class="image-placeholder" aria-hidden="true">Maxi</div>
+            <div class="product-body">
+              <div class="tag">Limited</div>
+              <h3>Ruby Maxi Dress</h3>
+              <p class="price">₹1,899</p>
+              <p>Flowy silhouette with statement sleeves.</p>
+              <a class="btn" href="#order">Add to Order</a>
+            </div>
+          </article>
+          <article class="product">
+            <div class="image-placeholder" aria-hidden="true">Co-ord</div>
+            <div class="product-body">
+              <div class="tag">New</div>
+              <h3>Noor Co-ord Set</h3>
+              <p class="price">₹3,450</p>
+              <p>Tailored comfort for work and weekend.</p>
+              <a class="btn" href="#order">Add to Order</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="story">
+      <div class="container">
+        <div class="section-title">
+          <h2>Our Story</h2>
+          <p>We blend heritage craftsmanship with contemporary silhouettes so you can celebrate every moment in style.</p>
+        </div>
+        <div class="features">
+          <div class="feature-card">
+            <div class="pill">Craftsmanship</div>
+            <h4>Handmade details</h4>
+            <p>Our artisans in Mumbai work with zari, mirror work, and hand embroidery to deliver heirloom-quality pieces.</p>
+          </div>
+          <div class="feature-card">
+            <div class="pill">Sustainability</div>
+            <h4>Conscious fabrics</h4>
+            <p>We source premium fabrics and produce in limited batches to reduce waste.</p>
+          </div>
+          <div class="feature-card">
+            <div class="pill">Fit</div>
+            <h4>Custom-ready</h4>
+            <p>Choose standard sizes or request custom tailoring with a quick size consultation.</p>
+          </div>
+          <div class="feature-card">
+            <div class="pill">Delivery</div>
+            <h4>Fast shipping</h4>
+            <p>Pan-India delivery with express options and tracked parcels.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lookbook" id="lookbook">
+      <div class="container">
+        <div class="section-title" style="color: #fff;">
+          <h2 style="color: #fff;">Lookbook</h2>
+          <p style="color: rgba(255,255,255,0.7);">Sneak peek of our campaign shots and upcoming drops.</p>
+        </div>
+        <div class="lookbook-grid">
+          <div class="image-placeholder" aria-hidden="true">Edit 01</div>
+          <div class="image-placeholder" aria-hidden="true">Edit 02</div>
+          <div class="image-placeholder" aria-hidden="true">Edit 03</div>
+          <div class="image-placeholder" aria-hidden="true">Edit 04</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <h2>Loved by our customers</h2>
+          <p>Over 2,000+ happy clients have styled Jharva for weddings, brunches, and festive celebrations.</p>
+        </div>
+        <div class="testimonials">
+          <div class="testimonial">
+            <strong>Riya Sharma</strong>
+            <p>“The fit and finish are luxurious. I ordered a custom kurti and it arrived perfectly tailored.”</p>
+          </div>
+          <div class="testimonial">
+            <strong>Meera Kulkarni</strong>
+            <p>“Fast delivery and the fabric quality is superb. Highly recommend their festive sets.”</p>
+          </div>
+          <div class="testimonial">
+            <strong>Aditi Jain</strong>
+            <p>“The co-ord set is my go-to for work events. Elegant and super comfortable.”</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="order">
+      <div class="container">
+        <div class="section-title">
+          <h2>Place your order</h2>
+          <p>Fill in your order details. We will confirm availability, sizing, and payment options within 24 hours.</p>
+        </div>
+        <div class="order">
+          <form action="mailto:hello@jharva.com" method="post" enctype="text/plain">
+            <div>
+              <label for="name">Full name</label>
+              <input id="name" name="name" type="text" placeholder="Your name" required>
+            </div>
+            <div>
+              <label for="phone">Phone number</label>
+              <input id="phone" name="phone" type="tel" placeholder="+91 98765 43210" required>
+            </div>
+            <div>
+              <label for="city">City</label>
+              <input id="city" name="city" type="text" placeholder="Mumbai" required>
+            </div>
+            <div>
+              <label for="product">Product</label>
+              <select id="product" name="product" required>
+                <option value="">Select a product</option>
+                <option>Ivory Silk Kurti</option>
+                <option>Emerald Lehenga</option>
+                <option>Ruby Maxi Dress</option>
+                <option>Noor Co-ord Set</option>
+              </select>
+            </div>
+            <div>
+              <label for="size">Size</label>
+              <input id="size" name="size" type="text" placeholder="S / M / L or custom">
+            </div>
+            <div>
+              <label for="notes">Notes</label>
+              <textarea id="notes" name="notes" placeholder="Color preference, custom sizing, delivery notes"></textarea>
+            </div>
+            <button class="btn primary" type="submit">Send Order Request</button>
+          </form>
+          <div class="contact-cards">
+            <div class="contact-card">
+              <strong>WhatsApp orders</strong>
+              <p>Message us at +91 98765 43210 with your product name, size, and delivery address.</p>
+            </div>
+            <div class="contact-card">
+              <strong>Payment options</strong>
+              <p>UPI, bank transfer, and card payments (via payment link) are available after order confirmation.</p>
+            </div>
+            <div class="contact-card">
+              <strong>Delivery & returns</strong>
+              <p>Free shipping on orders above ₹3,000. Easy exchanges within 7 days for ready sizes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>Jharva Fashion</h4>
+          <p>Premium womenswear designed in Mumbai. Style consultations available by appointment.</p>
+        </div>
+        <div>
+          <h4>Visit</h4>
+          <p>Studio 204, Bandra West, Mumbai</p>
+          <p>Mon - Sat: 10am - 8pm</p>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p><a href="mailto:hello@jharva.com">hello@jharva.com</a></p>
+          <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+          <p><a href="https://instagram.com" target="_blank" rel="noreferrer">@jharvafashion</a></p>
+        </div>
+        <div>
+          <h4>Quick links</h4>
+          <p><a href="#collection">Collection</a></p>
+          <p><a href="#order">Order</a></p>
+          <p><a href="#lookbook">Lookbook</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2024 Jharva Fashion. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.mobile-toggle');
+    const nav = document.querySelector('.nav');
+
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
