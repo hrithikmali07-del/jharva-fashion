@@ -1,0 +1,54 @@
+<%- include('../partials/head') %>
+<%- include('../partials/navbar') %>
+<%- include('../partials/flash') %>
+
+<main class="mx-auto max-w-6xl px-4 py-10 space-y-14">
+  <section class="rounded-3xl bg-gradient-to-br from-stone-900 via-stone-800 to-amber-900 text-white p-10 md:p-14 shadow-xl">
+    <p class="uppercase tracking-[0.3em] text-xs text-amber-200">Crafting Comfort & Style</p>
+    <h1 class="brand mt-4 text-5xl md:text-6xl">Kurti Extravaganza</h1>
+    <p class="mt-4 text-lg text-stone-100 max-w-2xl">Designer, embroidered, casual & festive picks for the modern wardrobe. Premium silhouettes inspired by timeless elegance.</p>
+    <a href="/shop" class="inline-block mt-8 rounded-full bg-white px-6 py-3 text-sm font-medium text-stone-900 hover:bg-amber-100 transition">Explore Collection</a>
+  </section>
+
+  <section>
+    <div class="flex items-end justify-between mb-6">
+      <h2 class="text-3xl brand text-stone-900">Featured Picks</h2>
+      <a href="/shop" class="text-sm text-amber-700 hover:text-amber-900">View all</a>
+    </div>
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <% featuredProducts.forEach((product) => { %>
+        <article class="product-card">
+          <a href="/product/<%= product.slug %>"><img src="<%= product.imageUrl %>" alt="<%= product.name %>" class="h-72 w-full object-cover rounded-2xl"/></a>
+          <div class="mt-4">
+            <p class="text-xs uppercase tracking-widest text-stone-500"><%= product.category %></p>
+            <h3 class="mt-1 text-lg font-semibold"><a href="/product/<%= product.slug %>"><%= product.name %></a></h3>
+            <p class="mt-2 text-stone-600 text-sm line-clamp-2"><%= product.description %></p>
+            <div class="mt-4 flex items-center justify-between">
+              <span class="font-semibold text-amber-800">₹<%= product.price.toLocaleString('en-IN') %></span>
+              <form action="/cart/add" method="POST">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <input type="hidden" name="productId" value="<%= product._id %>">
+                <button class="btn-primary" type="submit">Add to Cart</button>
+              </form>
+            </div>
+          </div>
+        </article>
+      <% }) %>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="text-3xl brand text-stone-900 mb-6">New Arrivals</h2>
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <% latestProducts.forEach((product) => { %>
+        <a href="/product/<%= product.slug %>" class="rounded-2xl border border-stone-200 bg-white p-4 hover:shadow-md transition">
+          <img src="<%= product.imageUrl %>" alt="<%= product.name %>" class="h-56 w-full rounded-xl object-cover"/>
+          <h3 class="mt-4 font-medium"><%= product.name %></h3>
+          <p class="text-sm text-amber-800 mt-1">₹<%= product.price.toLocaleString('en-IN') %></p>
+        </a>
+      <% }) %>
+    </div>
+  </section>
+</main>
+
+<%- include('../partials/footer') %>
