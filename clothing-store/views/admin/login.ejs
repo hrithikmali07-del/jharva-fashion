@@ -1,0 +1,25 @@
+<%- include('../partials/head') %>
+<%- include('../partials/navbar') %>
+<%- include('../partials/flash') %>
+
+<main class="mx-auto max-w-md px-4 py-12">
+  <div class="rounded-3xl border border-stone-200 bg-white p-8 shadow-sm">
+    <h1 class="brand text-3xl">Admin Login</h1>
+    <p class="mt-2 text-sm text-stone-600">Secure panel access for store management.</p>
+
+    <form action="/admin/login" method="POST" class="mt-6 space-y-4">
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+      <div>
+        <label class="label">Email</label>
+        <input class="input" type="email" name="email" required>
+      </div>
+      <div>
+        <label class="label">Password</label>
+        <input class="input" type="password" name="password" required>
+      </div>
+      <button class="btn-primary w-full" type="submit">Login</button>
+    </form>
+  </div>
+</main>
+
+<%- include('../partials/footer') %>

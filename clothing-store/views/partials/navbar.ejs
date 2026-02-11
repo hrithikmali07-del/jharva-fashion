@@ -1,0 +1,11 @@
+<header class="border-b border-stone-200 bg-white/80 backdrop-blur sticky top-0 z-40">
+  <nav class="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
+    <a href="/" class="brand text-2xl tracking-wide">Jharva Fashion</a>
+    <div class="flex items-center gap-6 text-sm">
+      <a href="/" class="hover:text-amber-700 <%= currentPath === '/' ? 'text-amber-700 font-medium' : '' %>">Home</a>
+      <a href="/shop" class="hover:text-amber-700 <%= currentPath.startsWith('/shop') ? 'text-amber-700 font-medium' : '' %>">Shop</a>
+      <a href="/cart" class="hover:text-amber-700 <%= currentPath.startsWith('/cart') ? 'text-amber-700 font-medium' : '' %>">Cart (<%= cartCount %>)</a>
+      <a href="/admin/login" class="hover:text-amber-700 <%= currentPath.startsWith('/admin') ? 'text-amber-700 font-medium' : '' %>">Admin</a>
+    </div>
+  </nav>
+</header>
